@@ -12,9 +12,7 @@ public class MealTo {
 
     private  boolean excess;
 
-    private int id;
-
-
+    private Integer id;
 
     public MealTo( LocalDateTime dateTime, String description, int calories, boolean excess) {
         this.dateTime = dateTime;
@@ -27,23 +25,13 @@ public class MealTo {
     public LocalDateTime getDateTime() {
         return dateTime;
     }
-    public void setDateTime(LocalDateTime dateTime){
-        this.dateTime=dateTime;
-    }
+
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description){
-        this.description=description;
-    }
-
     public int getCalories() {
         return calories;
-    }
-
-    public void setCalories(int calories) {
-        this.calories = calories;
     }
 
     public boolean isExcess() {
@@ -57,6 +45,10 @@ public class MealTo {
         this.id=id;
     }
 
+    public boolean isNew(){
+        if(id==null)return true;
+        else return false;
+    }
     @Override
     public String toString() {
         return "MealTo{" +

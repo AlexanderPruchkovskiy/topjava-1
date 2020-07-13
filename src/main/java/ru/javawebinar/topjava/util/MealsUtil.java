@@ -19,9 +19,7 @@ import static java.util.stream.Collectors.toList;
 public class MealsUtil {
 
 
-    static{
-
-    }
+    public static final int caloriesMaxPerDay=2000;
    public static final List MEALS = Arrays.asList(
             new Meal(LocalDateTime.of(2015, Month.MAY, 30, 10, 0), "Завтрак", 500),
             new Meal(LocalDateTime.of(2015, Month.MAY, 30, 13, 0), "Обед", 1000),
@@ -39,10 +37,10 @@ public class MealsUtil {
         List<MealTo> mealsWithExcess = getFilteredWithExcess(MEALS, LocalTime.of(7, 0), LocalTime.of(12, 0), 2000);
         mealsWithExcess.forEach(System.out::println);
 
-        System.out.println(getFilteredWithExcessByCycle(MEALS, LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
+     /*   System.out.println(getFilteredWithExcessByCycle(MEALS, LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
         System.out.println(getFilteredWithExcessInOnePass(MEALS, LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
         System.out.println(getFilteredWithExcessInOnePass2(MEALS, LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
-    }
+    */}
 
     public static List<MealTo> getFilteredWithExcess(List<Meal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
         Map<LocalDate, Integer> caloriesSumByDate = meals.stream()
@@ -117,6 +115,9 @@ public class MealsUtil {
     }
 
     private static MealTo createWithExcess(Meal meal, boolean excess) {
-        return new MealTo( meal.getDateTime(), meal.getDescription(), meal.getCalories(), excess);
-    }
+
+        MealTo resultMealTo= new MealTo( meal.getDateTime(), meal.getDescription(), meal.getCalories(), excess);
+         resultMealTo.setId(meal.getId());
+        return resultMealTo;
+        }
 }
