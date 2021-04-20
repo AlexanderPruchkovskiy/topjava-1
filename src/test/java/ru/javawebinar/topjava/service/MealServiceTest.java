@@ -122,7 +122,7 @@ public class MealServiceTest {
         service.update(mealUp, USER_ID);
         Meal meal=service.get(MEAL_ID,USER_ID);
 
-        assertThat(meal).isEqualToIgnoringGivenFields(mealUp, "id","dateTime");
+        assertThat(meal).isEqualToIgnoringGivenFields(mealUp, "id","date_time");
     }
 
     @Test
@@ -131,6 +131,6 @@ public class MealServiceTest {
 
         service.create(MEAL,USER_ID);
         Meal meal=service.get(MEAL_ID,USER_ID);
-        assertThat(meal).isEqualToIgnoringGivenFields(MEAL, "id","dateTime");
+        assertThat(meal).isEqualToIgnoringGivenFields(MEAL, "id","date_time");
     }
 }

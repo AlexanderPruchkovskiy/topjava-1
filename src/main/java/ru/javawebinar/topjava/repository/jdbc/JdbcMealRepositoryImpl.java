@@ -41,13 +41,13 @@ public class JdbcMealRepositoryImpl implements MealRepository {
 
 
 
-    String sqlStr="UPDATE meals SET description=:description, datetime=:dateTime," +
+    String sqlStr="UPDATE meals SET description=:description, date_time=:date_time," +
             "calories=:calories where user_id=:user_id AND id=:id";
         MapSqlParameterSource mapSqlParameterSource=new MapSqlParameterSource()
                 .addValue("user_id",userId)
                 .addValue("id", meal.getId())
                 .addValue("description", meal.getDescription())
-                .addValue("dateTime",meal.getDateTime())
+                .addValue("date_time",meal.getDateTime())
                 .addValue("calories",meal.getCalories());
     if (meal.isNew()){
 
@@ -80,15 +80,15 @@ else
 
     @Override
     public List<Meal> getAll(int userId){
-       return jdbcTemplate.query("SELECT*FROM meals WHERE user_id=? ORDER BY dateTime DESC, description DESC ",
+       return jdbcTemplate.query("SELECT*FROM meals WHERE user_id=? ORDER BY date_time DESC, description DESC ",
                ROW_MAPPER, userId);
 
     }
 
     @Override
     public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
-        return jdbcTemplate.query("SELECT*FROM meals WHERE user_id=? AND ((datetime>=?)AND(datetime<=?))" +
-                        "ORDER BY datetime, description DESC ",
+        return jdbcTemplate.query("SELECT*FROM meals WHERE user_id=? AND ((date_time>=?)AND(date_time<=?))" +
+                        "ORDER BY date_time, description DESC ",
                 ROW_MAPPER, userId, startDate, endDate);
 
     }

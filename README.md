@@ -200,3 +200,4 @@ Java Enterprise Online Project
 -  <a href="http://www.bookvoed.ru/book?id=639284">Редмонд Э.: Семь баз данных за семь недель. Введение в современные базы данных и идеологию NoSQL</a>
 -  <a href="http://www.ozon.ru/context/detail/id/3174887/">Brian Goetz: Java Concurrency in Practice</a>
 -  <a href="http://bookvoed.ru/book?id=2593572">G.L. McDowell: Cracking the Coding Interview</a>
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/babe2fd304e94b0e948ece9710f73c50)](https://www.codacy.com/gh/AlexanderPruchkovskiy/topjava-1/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlexanderPruchkovskiy/topjava-1&amp;utm_campaign=Badge_Grade)
